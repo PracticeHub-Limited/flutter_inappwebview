@@ -1,3 +1,7 @@
+## 6.0.12
+
+- (TalkJS) Fix build failure on Flutter 3.29.0 by removing references to v1 Android Embedding
+
 ## 6.0.11
 
 - (TalkJS) Updated androidx.webkit:webkit:1.8.0 to androidx.webkit:webkit:1.12.0
