@@ -21,10 +21,9 @@ import com.talkjs.talkjs_flutter_inappwebview.tracing.TracingControllerManager;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.BinaryMessenger;
-import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.platform.PlatformViewRegistry;
-import io.flutter.view.FlutterView;
+import io.flutter.embedding.android.FlutterView;
 
 public class TalkJSInAppWebViewFlutterPlugin implements FlutterPlugin, ActivityAware {
 
@@ -63,7 +62,6 @@ public class TalkJSInAppWebViewFlutterPlugin implements FlutterPlugin, ActivityA
 
   public FlutterWebViewFactory flutterWebViewFactory;
   public Context applicationContext;
-  public PluginRegistry.Registrar registrar;
   public BinaryMessenger messenger;
   public FlutterPlugin.FlutterAssets flutterAssets;
   @Nullable
@@ -74,14 +72,6 @@ public class TalkJSInAppWebViewFlutterPlugin implements FlutterPlugin, ActivityA
   public FlutterView flutterView;
 
   public TalkJSInAppWebViewFlutterPlugin() {}
-
-  @SuppressWarnings("deprecation")
-  public static void registerWith(PluginRegistry.Registrar registrar) {
-    final TalkJSInAppWebViewFlutterPlugin instance = new TalkJSInAppWebViewFlutterPlugin();
-    instance.registrar = registrar;
-    instance.onAttachedToEngine(
-            registrar.context(), registrar.messenger(), registrar.activity(), registrar.platformViewRegistry(), registrar.view());
-  }
 
   @Override
   public void onAttachedToEngine(FlutterPluginBinding binding) {
